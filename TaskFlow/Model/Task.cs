@@ -10,6 +10,8 @@ namespace TaskFlow {
     public TaskState State { get; set; }
     public string AssignedTo { get; set; }
 
+    public Task() { }
+
     public Task(string title, string description, string dueDate, string priority) {
       Id = Guid.NewGuid().ToString();
       Title = title;

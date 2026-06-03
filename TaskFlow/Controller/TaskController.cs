@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace TaskFlow {
+namespace TaskFlow.Controller {
   public class TaskController {
     private readonly List<Task> _tasks;
     private TaskIterator _iterator;

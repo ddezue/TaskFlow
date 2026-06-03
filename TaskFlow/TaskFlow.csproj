@@ -74,19 +74,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DoneState.cs" />
-    <Compile Include="FileStorage.cs" />
-    <Compile Include="InProgressState.cs" />
-    <Compile Include="NewState.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="Model\DoneState.cs" />
+    <Compile Include="Controller\FileStorage.cs" />
+    <Compile Include="Model\InProgressState.cs" />
+    <Compile Include="Model\NewState.cs" />
+    <Compile Include="View\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TaskController.cs" />
-    <Compile Include="TaskIterator.cs" />
-    <Compile Include="Task.cs" />
-    <Compile Include="TaskCreator.cs" />
-    <Compile Include="TaskTemplate.cs" />
-    <Compile Include="ReviewState.cs" />
-    <Compile Include="TaskState.cs" />
+    <Compile Include="Controller\TaskController.cs" />
+    <Compile Include="Model\TaskIterator.cs" />
+    <Compile Include="Model\Task.cs" />
+    <Compile Include="Model\TaskCreator.cs" />
+    <Compile Include="Model\TaskTemplate.cs" />
+    <Compile Include="Model\ReviewState.cs" />
+    <Compile Include="Model\TaskState.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

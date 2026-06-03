@@ -1,8 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using System.Text.Json;
+using TaskFlow.Model;
 
-namespace TaskFlow {
+namespace TaskFlow.Controller {
   public static class FileStorage {
     private static readonly string s_filePath = "tasks.json";
 

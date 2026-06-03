@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace TaskFlow {
+namespace TaskFlow.Controller {
   public class Program {
     private static TaskController _controller;
 
