@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
 
 namespace TaskFlow {
@@ -7,6 +8,9 @@ namespace TaskFlow {
     private int _currentIndex;
 
     public TaskIterator(List<Task> tasks) {
+      int noselectedtask;
+
+      noselectedtask = -1;
       if (tasks == null) {
         _tasks = new List<Task>();
       } else {
@@ -16,12 +20,13 @@ namespace TaskFlow {
       if (_tasks.Count > 0) {
         _currentIndex = 0;
       } else {
-        _currentIndex = -1;
+        _currentIndex = noselectedtask;
       }
     }
 
     public bool HasNext() {
       int lastIndex;
+
       lastIndex = 1;
       return _currentIndex < _tasks.Count - lastIndex;
     }
