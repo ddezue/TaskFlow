@@ -11,4 +11,12 @@ namespace TaskFlow {
     public string AssignedTo { get; set; }
 
   }
-}
+    public Task(string title, string description, string dueDate, string priority) {
+      Id = Guid.NewGuid().ToString();
+      Title = title;
+      Description = description;
+      DueDate = dueDate;
+      Priority = priority;
+      Status = "Новая";
+      AssignedTo = string.Empty;
+    }
