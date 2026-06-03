@@ -7,12 +7,23 @@ namespace TaskFlow {
     private int _currentIndex;
 
     public TaskIterator(List<Task> tasks) {
-      _tasks = tasks;
-      _currentIndex = 0;
+      if (tasks == null) {
+        _tasks = new List<Task>();
+      } else {
+        _tasks = tasks;
+      }
+
+      if (_tasks.Count > 0) {
+        _currentIndex = 0;
+      } else {
+        _currentIndex = -1;
+      }
     }
 
     public bool HasNext() {
-      return _currentIndex < _tasks.Count - 1;
+      int lastIndex;
+      lastIndex = 1;
+      return _currentIndex < _tasks.Count - lastIndex;
     }
 
     public bool HasPrevious() {
@@ -36,14 +47,17 @@ namespace TaskFlow {
     }
 
     public Task GetCurrent() {
-      if (_tasks == null || _tasks.Count == 0) {
+      if (_tasks.Count == 0 || _currentIndex < 0 || _currentIndex >= _tasks.Count) {
         return null;
       }
+
       return _tasks[_currentIndex];
     }
 
     public void AssignCurrentTo(string userName) {
-      Task current = GetCurrent();
+      Task current;
+
+      current = GetCurrent();
       if (current != null) {
         current.AssignedTo = userName;
       }
