@@ -1,7 +1,3 @@
 <Solution>
-  <Folder Name="/Элементы решения/">
-    <File Path=".editorconfig" />
-    <File Path="Settings.StyleCop.json" />
-  </Folder>
   <Project Path="TaskFlow/TaskFlow.csproj" Id="dbf68065-c8ef-491f-97c2-d578bd309b7b" />
 </Solution>
