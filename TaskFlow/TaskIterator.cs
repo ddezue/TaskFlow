@@ -6,33 +6,34 @@ namespace TaskFlow {
   public class TaskIterator {
     private readonly List<Task> _tasks;
     private int _currentIndex;
+    private readonly int NoSelectedTask = -1;
+    private readonly int FirstIndex = 0;
+    private readonly int NextTaskOffset = 1;
+    private readonly int EmptyListCount = 0;
 
     public TaskIterator(List<Task> tasks) {
-      int noselectedtask;
-
-      noselectedtask = -1;
       if (tasks == null) {
         _tasks = new List<Task>();
       } else {
         _tasks = tasks;
       }
 
-      if (_tasks.Count > 0) {
-        _currentIndex = 0;
+      if (_tasks.Count > EmptyListCount) {
+        _currentIndex = FirstIndex;
       } else {
-        _currentIndex = noselectedtask;
+        _currentIndex = NoSelectedTask;
       }
     }
 
     public bool HasNext() {
       int lastIndex;
 
-      lastIndex = 1;
+      lastIndex = NextTaskOffset;
       return _currentIndex < _tasks.Count - lastIndex;
     }
 
     public bool HasPrevious() {
-      return _currentIndex > 0;
+      return _currentIndex > FirstIndex;
     }
 
     public Task Next() {
@@ -52,7 +53,7 @@ namespace TaskFlow {
     }
 
     public Task GetCurrent() {
-      if (_tasks.Count == 0 || _currentIndex < 0 || _currentIndex >= _tasks.Count) {
+      if (_tasks.Count == EmptyListCount || _currentIndex < FirstIndex || _currentIndex >= _tasks.Count) {
         return null;
       }
 
