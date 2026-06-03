@@ -17,3 +17,24 @@ public bool HasNext() {
 public bool HasPrevious() {
   return _currentIndex > 0;
 }
+public Task Next() {
+  if (HasNext()) {
+    _currentIndex++;
+    return _tasks[_currentIndex];
+  }
+  return null;
+}
+
+public Task Previous() {
+  if (HasPrevious()) {
+    _currentIndex--;
+    return _tasks[_currentIndex];
+  }
+  return null;
+}
+public Task GetCurrent() {
+  if (_tasks == null || _tasks.Count == 0) {
+    return null;
+  }
+  return _tasks[_currentIndex];
+}
