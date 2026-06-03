@@ -6,16 +6,16 @@ namespace TaskFlow {
   public class TaskIterator {
     private readonly List<Task> _tasks;
     private int _currentIndex;
-    private readonly int invalidIndex;
-    private readonly int FirstIndex;
-    private readonly int NextTaskOffset;
-    private readonly int EmptyListCount;
+    private readonly int _invalidIndex;
+    private readonly int _firstIndex;
+    private readonly int _nextTaskOffset;
+    private readonly int _emptyListCount;
 
     public TaskIterator(List<Task> tasks) {
-      invalidIndex = -1;
-      FirstIndex = 0;
-      NextTaskOffset = 1;
-      EmptyListCount = 0;
+      _invalidIndex = -1;
+      _firstIndex = 0;
+      _nextTaskOffset = 1;
+      _emptyListCount = 0;
 
       if (tasks == null) {
         _tasks = new List<Task>();
@@ -23,21 +23,19 @@ namespace TaskFlow {
         _tasks = tasks;
       }
 
-      if (_tasks.Count > EmptyListCount) {
-        _currentIndex = FirstIndex;
+      if (_tasks.Count > _emptyListCount) {
+        _currentIndex = _firstIndex;
       } else {
-        _currentIndex = invalidIndex;
+        _currentIndex = _invalidIndex;
       }
     }
 
     public bool HasNext() {
-      int lastIndex;
-      lastIndex = NextTaskOffset;
-      return _currentIndex < _tasks.Count - lastIndex;
+      return _currentIndex < _tasks.Count - _nextTaskOffset;
     }
 
     public bool HasPrevious() {
-      return _currentIndex > FirstIndex;
+      return _currentIndex > _firstIndex;
     }
 
     public Task Next() {
@@ -57,7 +55,7 @@ namespace TaskFlow {
     }
 
     public Task GetCurrent() {
-      if (_tasks.Count == EmptyListCount || _currentIndex < FirstIndex || _currentIndex >= _tasks.Count) {
+      if (_tasks.Count == _emptyListCount || _currentIndex < _firstIndex || _currentIndex >= _tasks.Count) {
         return null;
       }
 
