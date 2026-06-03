@@ -1,10 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace TaskFlow {
+  public class NewState : TaskState {
+    public override string GetStatus() {
+      return "Новая";
+    }
 
-namespace TaskFlow {
-  internal class NewState {
+    public override void Next(Task task) {
+      task.State = new InProgressState();
+    }
+
+    public override void Previous(Task task) {
+    }
+
+    public override TaskState Clone() {
+      return new NewState();
+    }
   }
 }

@@ -1,10 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace TaskFlow {
+  public class ReviewState : TaskState {
+    public override string GetStatus() {
+      return "На проверке";
+    }
 
-namespace TaskFlow {
-  internal class ReviewState {
+    public override void Next(Task task) {
+      task.State = new DoneState();
+    }
+
+    public override void Previous(Task task) {
+      task.State = new InProgressState();
+    }
+
+    public override TaskState Clone() {
+      return new ReviewState();
+    }
   }
 }
