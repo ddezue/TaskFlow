@@ -48,6 +48,9 @@
     <Compile Include="NewState.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Task.cs" />
+    <Compile Include="TaskCreator.cs" />
+    <Compile Include="TaskTemplate.cs" />
     <Compile Include="ReviewState.cs" />
     <Compile Include="TaskState.cs" />
   </ItemGroup>
