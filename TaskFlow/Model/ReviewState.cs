@@ -1,4 +1,4 @@
-﻿namespace TaskFlow {
+﻿namespace TaskFlow.Model {
   public class ReviewState : TaskState {
     public override string GetStatus() {
       return "На проверке";

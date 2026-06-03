@@ -1,8 +1,6 @@
 ﻿using System.Collections.Generic;
-using System.Security.Cryptography.X509Certificates;
-using System.Threading.Tasks;
 
-namespace TaskFlow {
+namespace TaskFlow.Model {
   public class TaskIterator {
     private readonly List<Task> _tasks;
     private int _currentIndex;

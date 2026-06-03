@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace TaskFlow {
+namespace TaskFlow.Model {
   public class Task {
     public string Id { get; set; }
     public string Title { get; set; }

@@ -1,4 +1,4 @@
-﻿namespace TaskFlow {
+﻿namespace TaskFlow.Model {
   public class TaskTemplate {
     public string Title { get; set; }
     public string Description { get; set; }

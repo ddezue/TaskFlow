@@ -1,4 +1,4 @@
-﻿namespace TaskFlow {
+﻿namespace TaskFlow.Model {
   public class NewState : TaskState {
     public override string GetStatus() {
       return "Новая";

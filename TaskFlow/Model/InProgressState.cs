@@ -1,4 +1,4 @@
-﻿namespace TaskFlow {
+﻿namespace TaskFlow.Model {
   public class InProgressState : TaskState {
     public override string GetStatus() {
       return "В работе";

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace TaskFlow {
+namespace TaskFlow.Model {
   public class TaskCreator {
     private readonly List<TaskTemplate> _templates;
 
