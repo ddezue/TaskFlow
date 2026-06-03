@@ -13,10 +13,7 @@ namespace TaskFlow.Model {
     }
 
     public Task CreateFromTemplate(int templateIndex) {
-      if (templateIndex < 0 || templateIndex >= _templates.Count) {
-        return null;
-      }
-      return _templates[templateIndex].CreateTask();
+      return templateIndex < 0 || templateIndex >= _templates.Count ? null : _templates[templateIndex].CreateTask();
     }
 
     public Task CloneTask(Task original) {

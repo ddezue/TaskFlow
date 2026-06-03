@@ -15,17 +15,9 @@ namespace TaskFlow.Model {
       _nextTaskOffset = 1;
       _emptyListCount = 0;
 
-      if (tasks == null) {
-        _tasks = new List<Task>();
-      } else {
-        _tasks = tasks;
-      }
+      _tasks = tasks ?? new List<Task>();
 
-      if (_tasks.Count > _emptyListCount) {
-        _currentIndex = _firstIndex;
-      } else {
-        _currentIndex = _invalidIndex;
-      }
+      _currentIndex = _tasks.Count > _emptyListCount ? _firstIndex : _invalidIndex;
     }
 
     public bool HasNext() {
@@ -53,11 +45,7 @@ namespace TaskFlow.Model {
     }
 
     public Task GetCurrent() {
-      if (_tasks.Count == _emptyListCount || _currentIndex < _firstIndex || _currentIndex >= _tasks.Count) {
-        return null;
-      }
-
-      return _tasks[_currentIndex];
+      return _tasks.Count == _emptyListCount || _currentIndex < _firstIndex || _currentIndex >= _tasks.Count ? null : _tasks[_currentIndex];
     }
 
     public void AssignCurrentTo(string userName) {

@@ -31,9 +31,10 @@ namespace TaskFlow.Controller {
         string[] parts = line.Split('|');
 
         if (parts.Length == 7) {
-          Task task = new Task(parts[1], parts[2], parts[3], parts[4]);
-          task.Id = parts[0];
-          task.AssignedTo = parts[6];
+          Task task = new Task(parts[1], parts[2], parts[3], parts[4]) {
+            Id = parts[0],
+            AssignedTo = parts[6]
+          };
 
           switch (parts[5]) {
             case "Новая":

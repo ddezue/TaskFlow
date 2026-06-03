@@ -1,6 +1,5 @@
 ﻿using System;
 using TaskFlow.Model;
-using TaskFlow.Controller;
 
 namespace TaskFlow.Controller {
   public class Program {
@@ -48,6 +47,7 @@ namespace TaskFlow.Controller {
       Console.WriteLine("7 - Следующий статус");
       Console.WriteLine("8 - Предыдущий статус");
       Console.WriteLine("0 - Выход");
+      Console.WriteLine();
     }
 
     private static bool HandleChoice(string choice) {
@@ -85,6 +85,7 @@ namespace TaskFlow.Controller {
     }
 
     private static void CreateNewTask() {
+      Console.WriteLine();
       Console.Write("Название: ");
       string title = Console.ReadLine();
       Console.Write("Описание: ");
