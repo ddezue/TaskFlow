@@ -7,7 +7,7 @@ namespace TaskFlow {
     public string Description { get; set; }
     public string DueDate { get; set; }
     public string Priority { get; set; }
-    public string Status { get; set; }
+    public TaskState State { get; set; }
     public string AssignedTo { get; set; }
 
     public Task(string title, string description, string dueDate, string priority) {
@@ -16,14 +16,14 @@ namespace TaskFlow {
       Description = description;
       DueDate = dueDate;
       Priority = priority;
-      Status = "Новая";
+      State = new NewState();
       AssignedTo = string.Empty;
     }
 
     public Task Clone() {
       return new Task(Title, Description, DueDate, Priority) {
-        AssignedTo = this.AssignedTo,
-        Status = this.Status
+        AssignedTo = AssignedTo,
+        State = State.Clone()
       };
     }
   }
