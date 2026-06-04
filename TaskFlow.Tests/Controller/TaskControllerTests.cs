@@ -15,12 +15,9 @@ namespace TaskFlow.Tests.Controller {
 
     [Fact]
     public void CreateNewTask_ShouldAddTask() {
-      TaskController controller;
-      Task task;
-
-      controller = new TaskController();
+      TaskController controller = new TaskController();
       controller.CreateNewTask("Test", "Desc", "2025-12-31", "High");
-      task = controller.GetCurrentTask();
+      Task task = controller.GetCurrentTask();
 
       Assert.NotNull(task);
       Assert.Equal("Test", task.Title);
@@ -28,41 +25,32 @@ namespace TaskFlow.Tests.Controller {
 
     [Fact]
     public void NextTask_ShouldChangeCurrentTask() {
-      TaskController controller;
-      Task current;
-
-      controller = new TaskController();
+      TaskController controller = new TaskController();
       controller.CreateNewTask("Task1", "Desc1", "2025-01-01", "High");
       controller.CreateNewTask("Task2", "Desc2", "2025-01-02", "Medium");
       controller.NextTask();
-      current = controller.GetCurrentTask();
+      Task current = controller.GetCurrentTask();
 
       Assert.Equal("Task2", current.Title);
     }
 
     [Fact]
     public void PreviousTask_ShouldChangeCurrentTask() {
-      TaskController controller;
-      Task current;
-
-      controller = new TaskController();
+      TaskController controller = new TaskController();
       controller.CreateNewTask("Task1", "Desc1", "2025-01-01", "High");
       controller.CreateNewTask("Task2", "Desc2", "2025-01-02", "Medium");
       controller.NextTask();
       controller.PreviousTask();
-      current = controller.GetCurrentTask();
+      Task current = controller.GetCurrentTask();
 
       Assert.Equal("Task1", current.Title);
     }
 
     [Fact]
     public void AdvanceTaskState_ShouldChangeState() {
-      TaskController controller;
-      Task task;
-
-      controller = new TaskController();
+      TaskController controller = new TaskController();
       controller.CreateNewTask("Test", "Desc", "2025-12-31", "High");
-      task = controller.GetCurrentTask();
+      Task task = controller.GetCurrentTask();
 
       Assert.IsType<NewState>(task.State);
 
@@ -72,13 +60,10 @@ namespace TaskFlow.Tests.Controller {
 
     [Fact]
     public void RevertTaskState_ShouldChangeState() {
-      TaskController controller;
-      Task task;
-
-      controller = new TaskController();
+      TaskController controller = new TaskController();
       controller.CreateNewTask("Test", "Desc", "2025-12-31", "High");
       controller.AdvanceTaskState();
-      task = controller.GetCurrentTask();
+      Task task = controller.GetCurrentTask();
 
       Assert.IsType<InProgressState>(task.State);
 
@@ -88,13 +73,10 @@ namespace TaskFlow.Tests.Controller {
 
     [Fact]
     public void AssignCurrentTaskTo_ShouldSetAssignee() {
-      TaskController controller;
-      Task task;
-
-      controller = new TaskController();
+      TaskController controller = new TaskController();
       controller.CreateNewTask("Test", "Desc", "2025-12-31", "High");
       controller.AssignCurrentTaskTo("Bob");
-      task = controller.GetCurrentTask();
+      Task task = controller.GetCurrentTask();
 
       Assert.Equal("Bob", task.AssignedTo);
     }
