@@ -1,7 +1,6 @@
 ﻿using System.IO;
 using Xunit;
-using TaskFlow.Controller;
-using TaskFlow.Model;
+using TaskFlow;
 
 namespace TaskFlow.Tests.Controller {
   public class TaskControllerTests {

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using Xunit;
-using TaskFlow.Model;
+using TaskFlow;
 
 namespace TaskFlow.Tests.Model {
   public class TaskIteratorTests {
