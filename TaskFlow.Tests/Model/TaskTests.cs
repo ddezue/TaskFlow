@@ -5,6 +5,7 @@ namespace TaskFlow.Tests.Model {
     [Fact]
     public void Constructor_ShouldInitializeProperties() {
       Task task;
+
       task = new Task("Test", "Description", "2025-12-31", "High");
 
       Assert.NotNull(task.Id);
@@ -19,6 +20,7 @@ namespace TaskFlow.Tests.Model {
     [Fact]
     public void Clone_ShouldCreateDeepCopy() {
       Task original;
+
       original = new Task("Original", "Desc", "2025-12-31", "Low") {
         AssignedTo = "John",
         State = new InProgressState()
