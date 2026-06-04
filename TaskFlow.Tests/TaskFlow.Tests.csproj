@@ -18,4 +18,8 @@
     <Using Include="Xunit" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\TaskFlow\TaskFlow.csproj" />
+  </ItemGroup>
+
 </Project>
