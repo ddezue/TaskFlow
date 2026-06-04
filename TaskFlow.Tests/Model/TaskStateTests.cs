@@ -4,18 +4,15 @@ namespace TaskFlow.Tests.Model {
   public class TaskStateTests {
     [Fact]
     public void NewState_Next_ShouldBecomeInProgress() {
-      Task task;
-      task = new Task("Test", "Desc", "2025-12-31", "High");
+      Task task = new Task("Test", "Desc", "2025-12-31", "High");
       Assert.IsType<NewState>(task.State);
-
       task.State.Next(task);
       Assert.IsType<InProgressState>(task.State);
     }
 
     [Fact]
     public void InProgressState_Next_ShouldBecomeReview() {
-      Task task;
-      task = new Task("Test", "Desc", "2025-12-31", "High") {
+      Task task = new Task("Test", "Desc", "2025-12-31", "High") {
         State = new InProgressState()
       };
 
@@ -25,8 +22,7 @@ namespace TaskFlow.Tests.Model {
 
     [Fact]
     public void InProgressState_Previous_ShouldBecomeNew() {
-      Task task;
-      task = new Task("Test", "Desc", "2025-12-31", "High") {
+      Task task = new Task("Test", "Desc", "2025-12-31", "High") {
         State = new InProgressState()
       };
 
@@ -36,8 +32,7 @@ namespace TaskFlow.Tests.Model {
 
     [Fact]
     public void ReviewState_Next_ShouldBecomeDone() {
-      Task task;
-      task = new Task("Test", "Desc", "2025-12-31", "High") {
+      Task task = new Task("Test", "Desc", "2025-12-31", "High") {
         State = new ReviewState()
       };
 
@@ -47,8 +42,7 @@ namespace TaskFlow.Tests.Model {
 
     [Fact]
     public void ReviewState_Previous_ShouldBecomeInProgress() {
-      Task task;
-      task = new Task("Test", "Desc", "2025-12-31", "High") {
+      Task task = new Task("Test", "Desc", "2025-12-31", "High") {
         State = new ReviewState()
       };
 
@@ -58,8 +52,7 @@ namespace TaskFlow.Tests.Model {
 
     [Fact]
     public void DoneState_Previous_ShouldBecomeReview() {
-      Task task;
-      task = new Task("Test", "Desc", "2025-12-31", "High") {
+      Task task = new Task("Test", "Desc", "2025-12-31", "High") {
         State = new DoneState()
       };
 
@@ -69,8 +62,7 @@ namespace TaskFlow.Tests.Model {
 
     [Fact]
     public void DoneState_Next_ShouldDoNothing() {
-      Task task;
-      task = new Task("Test", "Desc", "2025-12-31", "High") {
+      Task task = new Task("Test", "Desc", "2025-12-31", "High") {
         State = new DoneState()
       };
 

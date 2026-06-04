@@ -4,9 +4,7 @@ namespace TaskFlow.Tests.Model {
   public class TaskTests {
     [Fact]
     public void Constructor_ShouldInitializeProperties() {
-      Task task;
-      task = new Task("Test", "Description", "2025-12-31", "High");
-
+      Task task = new Task("Test", "Description", "2025-12-31", "High");
       Assert.NotNull(task.Id);
       Assert.Equal("Test", task.Title);
       Assert.Equal("Description", task.Description);
@@ -18,15 +16,12 @@ namespace TaskFlow.Tests.Model {
 
     [Fact]
     public void Clone_ShouldCreateDeepCopy() {
-      Task original;
-      original = new Task("Original", "Desc", "2025-12-31", "Low") {
+      Task original = new Task("Original", "Desc", "2025-12-31", "Low") {
         AssignedTo = "John",
         State = new InProgressState()
       };
 
-      Task cloned;
-      cloned = original.Clone();
-
+      Task cloned = original.Clone();
       Assert.NotEqual(original.Id, cloned.Id);
       Assert.Equal(original.Title, cloned.Title);
       Assert.Equal(original.Description, cloned.Description);
