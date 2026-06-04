@@ -6,10 +6,10 @@ namespace TaskFlow.Tests.Model {
   public class TaskIteratorTests {
     private List<Task> GetTestTasks() {
       List<Task> tasks = new List<Task> {
-                new Task("Task1", "Desc1", "2025-01-01", "High"),
-                new Task("Task2", "Desc2", "2025-01-02", "Medium"),
-                new Task("Task3", "Desc3", "2025-01-03", "Low")
-            };
+        new Task("Task1", "Desc1", "2025-01-01", "High"),
+        new Task("Task2", "Desc2", "2025-01-02", "Medium"),
+        new Task("Task3", "Desc3", "2025-01-03", "Low")
+      };
 
       return tasks;
     }

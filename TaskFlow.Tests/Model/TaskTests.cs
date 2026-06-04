@@ -1,4 +1,5 @@
-﻿using TaskFlow.Model;
+﻿using Xunit;
+using TaskFlow.Model;
 
 namespace TaskFlow.Tests.Model {
   public class TaskTests {
