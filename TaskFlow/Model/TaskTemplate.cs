@@ -15,5 +15,9 @@
     public Task CreateTask() {
       return new Task(Title, Description, DueDate, Priority);
     }
+
+    public TaskTemplate Clone() {
+      return new TaskTemplate(Title, Description, DueDate, Priority);
+    }
   }
 }
